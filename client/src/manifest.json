@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT PDF Extractor",
+  "version": "1.0",
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://chat.openai.com/*"],
+  "background": {
+    "service_worker": "client/src/background.ts"
+  },
+  "action": {
+    "default_popup": "client/index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["client/src/content.ts"]
+    }
+  ]
+}
